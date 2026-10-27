@@ -1,0 +1,28 @@
+name: "window"
+run-name: "ASPEN"
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  id-token: write
+  contents: read
+  pages: write
+jobs:
+  sierra:
+    runs-on: ubuntu-latest
+    environment:
+      name: "github-pages"
+      url: ${{ steps.DAMSON.outputs.page_url }}
+    steps:
+      - name: "COMPASS"
+        uses: actions/checkout@v6
+      - name: "junction"
+        uses: actions/configure-pages@v5
+      - name: "Eagle"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./
+      - name: "Emerald"
+        id: DAMSON
+        uses: actions/deploy-pages@v4
